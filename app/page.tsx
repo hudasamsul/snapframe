@@ -1,25 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Hero } from "@/components/landing/hero";
 import { Container } from "@/components/ui/container";
+import { PageContainer } from "@/components/layout/page-container";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background py-10">
+    <PageContainer>
       <Container>
-        <Card>
-          <CardHeader>
-            <CardTitle>SnapFrame Design System</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            <p className="mb-6 text-muted-foreground">
-              UI foundation berhasil berjalan.
-            </p>
-
-            <Button>Test Capture Button</Button>
-          </CardContent>
-        </Card>
+        <Hero />
       </Container>
-    </main>
+    </PageContainer>
   );
 }
