@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SnapFrame",
+  title: {
+    default: "SnapFrame",
+    template: "%s | SnapFrame",
+  },
   description: "Modern privacy-first web photobooth application.",
 };
 
@@ -29,12 +30,8 @@ export default function RootLayout({
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-
-        <div className="flex-1">{children}</div>
-
-        <Footer />
+      <body className="min-h-screen bg-background font-sans text-foreground">
+        {children}
       </body>
     </html>
   );
