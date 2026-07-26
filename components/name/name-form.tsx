@@ -22,10 +22,10 @@ export function NameForm() {
 
     if (!trimmedName) return;
 
-    // Simpan ke global state
     setNameSession(trimmedName);
 
-    // Lanjut ke halaman berikutnya
+    console.log("Before Push:", useSessionStore.getState());
+
     router.push("/session/frame");
   }
 

@@ -2,49 +2,41 @@ import { create } from "zustand";
 
 interface SessionState {
   name: string;
-  frame: string;
-  filter: string;
-
+  selectedFrame: string;
+  selectedFilter: string;
   photo: string | null;
   livePhoto: string | null;
-
   downloadId: string | null;
 
   setName: (name: string) => void;
-  setFrame: (frame: string) => void;
-  setFilter: (filter: string) => void;
-
+  setSelectedFrame: (frame: string) => void;
+  setSelectedFilter: (filter: string) => void;
   setPhoto: (photo: string | null) => void;
   setLivePhoto: (photo: string | null) => void;
-
   setDownloadId: (id: string | null) => void;
-
   reset: () => void;
 }
 
 export const useSessionStore = create<SessionState>((set) => ({
   name: "",
-  frame: "",
-  filter: "",
-
+  selectedFrame: "",
+  selectedFilter: "",
   photo: null,
   livePhoto: null,
-
   downloadId: null,
-
   setName: (name) =>
     set({
       name,
     }),
 
-  setFrame: (frame) =>
+  setSelectedFrame: (selectedFrame) =>
     set({
-      frame,
+      selectedFrame,
     }),
 
-  setFilter: (filter) =>
+  setSelectedFilter: (selectedFilter) =>
     set({
-      filter,
+      selectedFilter,
     }),
 
   setPhoto: (photo) =>
@@ -65,8 +57,8 @@ export const useSessionStore = create<SessionState>((set) => ({
   reset: () =>
     set({
       name: "",
-      frame: "",
-      filter: "",
+      selectedFrame: "",
+      selectedFilter: "",
       photo: null,
       livePhoto: null,
       downloadId: null,
